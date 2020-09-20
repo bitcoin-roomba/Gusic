@@ -1,0 +1,230 @@
+body {
+    background-color: black;
+}
+
+/*optimised for scrolling content, will cause shift on modal open without scroll bar*/
+.modal-open {
+    padding-right: 17px;
+    overflow-y: hidden;
+}
+
+a {
+    color:cyan;
+}
+
+a:hover {
+    color:darkcyan;
+    text-decoration: none;
+}
+
+/*.touchmode .cardimg {
+    filter: brightness(0.3) !important;
+}*/
+
+.touchmode .card-img-overlay {
+    visibility: visible !important;
+}
+
+.player {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-color: cyan;
+    display: inline-block;
+    vertical-align: middle;
+    background-position-x: center;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.underlined:hover {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.seek {
+    float:right;
+    width: 90%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#seekbar {
+    vertical-align: middle;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: gray;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border: 1px solid cyan;
+    border-radius: 3px;
+      
+}
+
+#seekbar:hover {
+    opacity: 1;
+}   
+
+#seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: cyan;
+    cursor: pointer;
+    border: none;
+  }
+  
+#seekbar::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: cyan;
+    cursor: pointer;
+    border: none;
+  }
+
+.buttons {
+    float:left;
+    padding-right: 4px;
+}
+
+.play {
+    background-image: url("../icons/play-fill.svg");  
+}
+
+.pause {
+    background-image: url("../icons/pause-fill.svg");
+}
+
+#next {
+    background-image: url("../icons/skip-end-fill.svg");
+}
+
+#prev {
+    background-image: url("../icons/skip-start-fill.svg");
+}
+
+.card {
+    margin: 0 auto;
+    padding-right:0;
+    padding-left:0;
+    background: cyan;
+    border-radius: 0 !important;
+}
+
+
+.modal-content {
+    border: 1px solid cyan;
+}
+
+.close {
+    color: whitesmoke;
+}
+
+.close:hover {
+    color: cyan !important;
+}
+
+.modal-header {
+    border-color: cyan;
+    background-color: #2b2b2b;
+    color: whitesmoke;
+}
+
+.modal-footer {
+    border-color: cyan;
+    background-color: #2b2b2b;
+    display: none;
+}
+
+.modal-body {
+    background-color: #2b2b2b;
+    color: whitesmoke;
+}
+
+.cardimg {
+    width:18rem;
+    height:18rem;
+    object-fit: cover;
+}
+
+.card:hover .cardimg {
+    filter: brightness(0.3);
+}
+
+/*.card-img-overlay {
+    color:transparent;
+}*/
+
+
+.card-img-overlay {
+    visibility: hidden;
+}
+
+.card:hover .card-img-overlay {
+    visibility: visible;
+}
+
+.card-title {
+    color:whitesmoke;
+}
+
+.card-subtitle {
+    color: #949494;
+}
+.card-text {
+    color: #949494;
+}
+
+.touchmode .card-title {
+    color:whitesmoke;
+    background-color: black;
+    display: table;
+}
+
+.touchmode .card-subtitle {
+    color: #949494;
+    background-color: black;
+    display: table;
+}
+
+.touchmode .card-text {
+    color: #949494;
+    background-color: black;
+    display: table;
+}
+
+.touchmode .card-img-overlay {
+    opacity: 0.9;
+}
+
+.darkgray {
+    background-color: #2b2b2b;
+}
+
+.gray {
+    background-color: #424242;
+}
+
+.text-white {
+    color: whitesmoke;
+}
+
+
+.text-shadow {
+	text-shadow:
+		-0.5px -0.5px 0 #000,
+		0.5px -0.5px 0 #000,
+		-0.5px 0.5px 0 #000,
+		0.5px 0.5px 0 #000;
+}
+

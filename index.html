@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Gusic</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    </head>
+
+    <body>
+        <nav id="nav" class="navbar fixed-top static-top navbar-expand-sm navbar-dark darkgray">
+            <i><a class="navbar-brand" href="./index.html">Gusic</a></i>
+            <audio id="player" src="" data-nowalbum="" data-nowtrack="">HTML5 Audio not supported.</audio>
+            <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>-->
+            
+            <!--<div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">-->
+            <div class="navbar-collapse flex-column d-flex" id="navbarSupportedContent">
+                <div class="nav navbar-nav mr-auto d-flex container-fluid">
+                    <div class="buttons" style="padding-right: 10px; padding-bottom: 5px; padding-top: 5px;">
+                        <button type="button" id="prev" class="player btn form-inline">
+                        </button>
+                    
+                    
+                        <button type="button" id="playpause" class="player btn play form-inline">
+                        </button>
+                    
+                    
+                        <button type="button" id="next" class="player btn form-inline">
+                        </button>
+                        
+                        
+                        
+                    </div>
+                    <div class="form-inline flex-fill container seek ml-0 justify-content-left mt-1" style="vertical-align: middle; padding-bottom: 5px; padding-top: 5px;">
+                        <input id="seekbar" type="range" name="rng" min="0" step="0.25" value="0" class="align-middle form-inline flex-fill">
+                    </div>
+                    
+                </div>
+                
+                <div class="nav navbar-nav flex-row d-flex mr-auto mt-1">
+                    <h5 id="nowplaying" class="flex-fill" style="color: whitesmoke; padding-right: 5px;">No Track Selected</h5>
+                        <h5 id="timetrack" style="color: cyan;">[--:--/--:--]</h5>
+                </div>
+
+                <div class="nav navbar-nav flex-row mr-auto mt-0"></div>
+            </div>
+        </nav>
+        <div class="col-md-12 flex-row d-flex justify-content-center">
+            <p style="color:whitesmoke">Sort by:&nbsp;</p>
+            <a id="titlesort" style="padding-left: 3px; padding-right: 3px;" href="#/" onclick="sortAscTitle()">Title</a>
+            <a id="artistsort" style="padding-left: 3px; padding-right: 3px;" href="#/" onclick="sortAscArtist()">Artist</a>
+            <a id="yearsort" style="padding-left: 3px; padding-right: 3px;" href="#/" onclick="sortAscYear()">Year</a>
+            <p style="color:whitesmoke">Touch Mode:&nbsp;</p>
+            <a id="touchmode" style="padding-left: 3px; padding-right: 3px;" href="#/" onclick="touchModeOn()">[Off]</a>
+        </div>
+        
+
+         <!--Main Content-->
+         <div class="container-fluid" style="padding-right:2rem; padding-left:2rem;">
+            <div id="cardcontainer" class="row d-flex flex-wrap justify-content-center"></div>
+        </div>
+
+        <div id="modalcontainer"></div>
+
+        <div class="col-md-12" style="height: 20px;"></div>
+
+    <script src="./js/albums.js"></script>
+    <script src="./js/cardcreator.js"></script>
+    <script src="./js/player.js"></script>
+
+
+            <!-- Bootstrap boilerplate -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    </body>
+
+</html>
