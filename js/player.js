@@ -143,10 +143,13 @@ prev.addEventListener("click", function() {
 });
 
 var timetrack = document.getElementById("timetrack");
+var seeking = false;
 
 
 audio.addEventListener("timeupdate", function() {
-    setSeekbarPosition();
+    if(!seeking) {
+        setSeekbarPosition();  
+    }
     timetrack.innerHTML = "["+ Math.floor(audio.currentTime/60) +":" + pad(Math.floor(audio.currentTime % 60), 2) + "/"+ Math.floor(audio.duration/60) +":"+ pad(Math.floor(audio.duration % 60), 2) + "]";
 
 });
@@ -158,4 +161,12 @@ audio.addEventListener("loadedmetadata", function() {
 
 seekbar.addEventListener("change", function() {
     setCurrentTime();
+});
+
+seekbar.addEventListener("mousedown", function() {
+    seeking = true;
+});
+
+seekbar.addEventListener("mouseup", function() {
+    seeking = false;
 });
