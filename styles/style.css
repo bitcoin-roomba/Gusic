@@ -79,9 +79,11 @@ a:hover {
     appearance: none;
     width: 18px;
     height: 18px;
+    border-radius: 50%;
     background: cyan;
     cursor: pointer;
     border: none;
+    margin: -6px;
   }
   
 #seekbar::-moz-range-thumb {
