@@ -28,6 +28,5 @@ The library is currently stored as a JS object array in js/albums.js. It is curr
 ## Todo:
 
 - 3-position repeat toggle.
-- Fix seekbar jank.
 - Automatic library generation.
 - Clustering by artist / year ?
