@@ -170,3 +170,11 @@ seekbar.addEventListener("mousedown", function() {
 seekbar.addEventListener("mouseup", function() {
     seeking = false;
 });
+
+seekbar.addEventListener("touchstart", function() {
+    seeking = true;
+});
+
+seekbar.addEventListener("touchend", function() {
+    seeking = false;
+});
