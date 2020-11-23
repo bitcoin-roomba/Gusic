@@ -48,6 +48,22 @@ namespace GusicLibraryBuilder
                                 albums.Add(target);
                             }
                             target.tracks.Add(new Track(current.Tag.Title, filePath, (int)current.Tag.Track));
+                            if(!target.imageset)
+                            {
+                                if (File.Exists(Path.Combine(Path.GetDirectoryName(filePath), "cover.jpg")))
+                                {
+                                    target.imagesrc = Path.Combine(Path.GetDirectoryName(filePath), "cover.jpg");
+                                    target.imageset = true;
+                                } else {
+                                    List<String> images = new List<String>(Directory.GetFiles(Path.GetDirectoryName(filePath), "*.jpg"));
+                                    images.AddRange(Directory.GetFiles(Path.GetDirectoryName(filePath), "*.png"));
+                                    if (images.Count != 0)
+                                    {
+                                        target.imagesrc = images[0];
+                                        target.imageset = true;
+                                    }
+                                }
+                            }
                         }
                     }
                     catch (Exception e) {
@@ -55,6 +71,12 @@ namespace GusicLibraryBuilder
                     }
                 }
             }
+
+            foreach (Album x in albums)
+            {
+                x.SortTracks();
+            }
+
         }
 
         static Album GetAlbum (List<Album> albums, string title, string artist, int year) {
@@ -83,9 +105,14 @@ namespace GusicLibraryBuilder
             tracks = new List<Track>();
             imageset = false;
         }
+
+        public void SortTracks()
+        {
+            tracks.Sort();
+        }
     }
 
-    class Track
+    class Track : IComparable
     {
         public string name;
         public string path;
@@ -95,6 +122,19 @@ namespace GusicLibraryBuilder
             this.name = name;
             this.path = path;
             this.tracknum = tracknum;
+        }
+
+        public int CompareTo(Object obj)
+        {
+            if (!(obj is Track)) {
+                throw new ArgumentException("Wrong type");
+            }
+            if (obj == null)
+            {
+                throw new NullReferenceException("null track");
+            }
+            Track other = obj as Track;
+            return this.tracknum - other.tracknum;
         }
     }
 }
