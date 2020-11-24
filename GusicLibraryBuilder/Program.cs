@@ -11,7 +11,6 @@ namespace GusicLibraryBuilder
             if (args.Length == 0) {
                 Console.WriteLine("No Argument, using launch directory");
                 entryFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                return;
             }
             else {
                 entryFolder = args[0];
@@ -75,6 +74,20 @@ namespace GusicLibraryBuilder
             foreach (Album x in albums)
             {
                 x.SortTracks();
+                Console.WriteLine(x.year + " - " + x.title + " - " + x.artist + " - " + x.imagesrc);
+                foreach (Track y in x.tracks)
+                {
+                    Console.WriteLine(y.tracknum + " - " + y.name + " - " + y.path);
+                }
+            }
+            LibraryJSGenerator generator = new LibraryJSGenerator(albums, entryFolder);
+            List<String> lines = generator.GenerateLines();
+            using (StreamWriter file = new StreamWriter(Path.Combine(entryFolder, "js\\albums.js")))
+            {
+                foreach (String x in lines)
+                {
+                    file.WriteLine(x);
+                }
             }
 
         }
@@ -135,6 +148,45 @@ namespace GusicLibraryBuilder
             }
             Track other = obj as Track;
             return this.tracknum - other.tracknum;
+        }
+    }
+
+    class LibraryJSGenerator
+    {
+        List<Album> albums;
+        string entryFolder;
+
+        public LibraryJSGenerator(List<Album> albums, string entryFolder)
+        {
+            this.albums = albums;
+            this.entryFolder = entryFolder;
+        }
+
+        public List<String> GenerateLines() {
+            List<String> lines = new List<string>();
+            lines.Add("var albums = [");
+            //process albums here
+            foreach(Album x in albums)
+            {
+                lines.Add("{");
+                lines.Add("\"album\": \"" + x.title + "\",");
+                lines.Add("\"band\": \"" + x.artist + "\",");
+                lines.Add("\"year\": \"" + x.year + "\",");
+                lines.Add("\"src\": \"" + Path.GetRelativePath(entryFolder, x.imagesrc).Replace("\\", "/") + "\",");
+                lines.Add("\"tracks\": [");
+                foreach(Track y in x.tracks)
+                {
+                    lines.Add("{");
+                    lines.Add("\"name\": \"" + y.name + "\",");
+                    lines.Add("\"src\": \"" + Path.GetRelativePath(entryFolder, y.path).Replace("\\", "/") + "\",");
+                    lines.Add("},");
+                }
+                lines.Add("]");
+                lines.Add("},");
+            }
+            //end album processing
+            lines.Add("];");
+            return lines;
         }
     }
 }
