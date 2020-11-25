@@ -100,6 +100,36 @@ namespace GusicLibraryBuilder
             }
             return null;
         }
+
+        static string locateAlbumArt(string dir)
+        {
+            if (File.Exists(Path.Combine(dir, "cover.jpg")))
+            {
+                return Path.Combine(Path.GetDirectoryName(dir), "cover.jpg");
+                
+            }
+            if (File.Exists(Path.Combine(dir, "cover.png")))
+            {
+                return Path.Combine(Path.GetDirectoryName(dir), "cover.png");
+            }
+            string name = (new DirectoryInfo(dir)).Name;
+            if (File.Exists(Path.Combine(dir, name + ".jpg")))
+            {
+                return Path.Combine(Path.GetDirectoryName(dir), name + ".jpg");
+
+            }
+            if (File.Exists(Path.Combine(dir, name + ".png")))
+            {
+                return Path.Combine(Path.GetDirectoryName(dir), name + ".png");
+            }
+            List<String> images = new List<String>(Directory.GetFiles(dir, "*.jpg"));
+            images.AddRange(Directory.GetFiles(dir, "*.png"));
+            if (images.Count != 0)
+            {
+                return images[0];
+            }
+            return null;
+        }
     }
 
     class Album
