@@ -49,7 +49,13 @@ namespace GusicLibraryBuilder
                             target.tracks.Add(new Track(current.Tag.Title, filePath, (int)current.Tag.Track));
                             if(!target.imageset)
                             {
-                                if (File.Exists(Path.Combine(Path.GetDirectoryName(filePath), "cover.jpg")))
+                                string art = locateAlbumArt(Path.GetDirectoryName(filePath));
+                                if (art != null)
+                                {
+                                    target.imagesrc = art;
+                                    target.imageset = true;
+                                }
+                                /*if (File.Exists(Path.Combine(Path.GetDirectoryName(filePath), "cover.jpg")))
                                 {
                                     target.imagesrc = Path.Combine(Path.GetDirectoryName(filePath), "cover.jpg");
                                     target.imageset = true;
@@ -61,7 +67,7 @@ namespace GusicLibraryBuilder
                                         target.imagesrc = images[0];
                                         target.imageset = true;
                                     }
-                                }
+                                }*/
                             }
                         }
                     }
@@ -105,22 +111,22 @@ namespace GusicLibraryBuilder
         {
             if (File.Exists(Path.Combine(dir, "cover.jpg")))
             {
-                return Path.Combine(Path.GetDirectoryName(dir), "cover.jpg");
+                return Path.Combine(dir, "cover.jpg");
                 
             }
             if (File.Exists(Path.Combine(dir, "cover.png")))
             {
-                return Path.Combine(Path.GetDirectoryName(dir), "cover.png");
+                return Path.Combine(dir, "cover.png");
             }
             string name = (new DirectoryInfo(dir)).Name;
             if (File.Exists(Path.Combine(dir, name + ".jpg")))
             {
-                return Path.Combine(Path.GetDirectoryName(dir), name + ".jpg");
+                return Path.Combine(dir, name + ".jpg");
 
             }
             if (File.Exists(Path.Combine(dir, name + ".png")))
             {
-                return Path.Combine(Path.GetDirectoryName(dir), name + ".png");
+                return Path.Combine(dir, name + ".png");
             }
             List<String> images = new List<String>(Directory.GetFiles(dir, "*.jpg"));
             images.AddRange(Directory.GetFiles(dir, "*.png"));
