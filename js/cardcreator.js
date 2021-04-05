@@ -1,8 +1,8 @@
-function createelementModal(albumobject, x) {
+function createelementModal(albumobject) {
     //x deprecates album id
     let modal = document.createElement("div");
     modal.className = "modal fade";
-    modal.id = "a" + x;
+    modal.id = "a" + albumobject.id;
     modal.setAttribute("tabindex", "-1");
     modal.role = "dialog";
 
@@ -42,8 +42,8 @@ function createelementModal(albumobject, x) {
         let entry = document.createElement("li");
         let ref = document.createElement("a");
         ref.href = "#/";
-        ref.setAttribute("onclick", "playTrack(\"" + albumobject.tracks[i].src + "\", \"" + x + "\", \"" + (i+1) +"\")");
-        ref.setAttribute("data-albumid", x);
+        ref.setAttribute("onclick", "playTrack(\"" + albumobject.tracks[i].src + "\", \"" + albumobject.id + "\", \"" + (i+1) +"\")");
+        ref.setAttribute("data-albumid", albumobject.id);
         ref.setAttribute("data-tracknum", i+1);
         ref.setAttribute("data-src", albumobject.tracks[i].src);
         ref.setAttribute("data-name", albumobject.tracks[i].name);
@@ -73,13 +73,12 @@ function createelementModal(albumobject, x) {
     modalContainer.appendChild(modal);
 }
 
-function createelementCard(element, x) {
+function createelementCard(element) {
 
-    //x deprecates album id
     let card = document.createElement('div');
     card.className = 'card shadow cursor-pointer';
     card.setAttribute("data-toggle", "modal");
-    card.setAttribute("data-target", "#a" + x);
+    card.setAttribute("data-target", "#a" + element.id);
 
     let cardoverlay = document.createElement("div");
     cardoverlay.className = "card-img-overlay d-flex flex-column justify-content-end";
@@ -133,15 +132,15 @@ function initListOfelements() {
     cardContainer = document.getElementById('cardcontainer');
     modalContainer = document.getElementById('modalcontainer');
     
-    /*albums.forEach((albumobject) => {
+    albums.forEach((albumobject) => {
         createelementCard(albumobject);
         createelementModal(albumobject);
-    });*/
+    });
 
-    for (i = 0; i < albums.length; i++) {
-        createelementCard(albums[i%albums.length], i+1);
-        createelementModal(albums[i%albums.length], i+1);
-    }
+    /*for (i = 0; i < albums.length; i++) {
+        createelementCard(albums[i%albums.length]);
+        createelementModal(albums[i%albums.length]);
+    }*/
 }
 
 function bufferResize() {
