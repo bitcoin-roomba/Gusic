@@ -187,22 +187,26 @@ a:hover {
     color: #949494;
 }
 
+.modal-open .touchmode{
+    display: table;
+}
+
 .touchmode .card-title {
     color:whitesmoke;
     background-color: black;
-    display: table;
+    display: table !important;
 }
 
 .touchmode .card-subtitle {
     color: #949494;
     background-color: black;
-    display: table;
+    display: table !important;
 }
 
 .touchmode .card-text {
     color: #949494;
     background-color: black;
-    display: table;
+    display: table !important;
 }
 
 .touchmode .card-img-overlay {
