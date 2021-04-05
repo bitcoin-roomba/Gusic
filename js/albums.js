@@ -3,6 +3,7 @@ var albums = [
 "album": "AM",
 "band": "Arctic Monkeys",
 "year": "2013",
+"id": 1,
 "src": "mu/am/am.jpg",
 "tracks": [
 {
@@ -59,6 +60,7 @@ var albums = [
 "album": "Analytical Dreaming",
 "band": "Animal Faces",
 "year": "2010",
+"id": 2,
 "src": "mu/analdream/analdream.jpg",
 "tracks": [
 {
@@ -87,6 +89,7 @@ var albums = [
 "album": "Banished From Time",
 "band": "Black Cilice",
 "year": "2017",
+"id": 3,
 "src": "mu/banishedfromtime/banishedfromtime.jpg",
 "tracks": [
 {
@@ -115,6 +118,7 @@ var albums = [
 "album": "Who Do You Serve? E.P.",
 "band": "Bootlicker",
 "year": "2018",
+"id": 4,
 "src": "mu/bootlicker/bootlicker.jpg",
 "tracks": [
 {
@@ -147,6 +151,7 @@ var albums = [
 "album": "Deadbeat",
 "band": "Aesthetics Versus Architecture",
 "year": "2013",
+"id": 5,
 "src": "mu/deadbeat/deadbeat.jpg",
 "tracks": [
 {
@@ -175,6 +180,7 @@ var albums = [
 "album": "What To Do At Time Of Accident",
 "band": "Heston Rifle",
 "year": "2005",
+"id": 6,
 "src": "mu/heston/heston.jpg",
 "tracks": [
 {
@@ -207,6 +213,7 @@ var albums = [
 "album": "Jane Doe",
 "band": "Converge",
 "year": "2001",
+"id": 7,
 "src": "mu/janedoe/janedoe.jpg",
 "tracks": [
 {
@@ -263,6 +270,7 @@ var albums = [
 "album": "Lion",
 "band": "Anup Sastry",
 "year": "2014",
+"id": 8,
 "src": "mu/lion/lion.jpg",
 "tracks": [
 {
@@ -287,6 +295,7 @@ var albums = [
 "album": "Litourgiya",
 "band": "Batushka",
 "year": "2015",
+"id": 9,
 "src": "mu/liturgiya/liturgiya.jpg",
 "tracks": [
 {
@@ -327,6 +336,7 @@ var albums = [
 "album": "Orange Mathematics",
 "band": "Frontierer",
 "year": "2015",
+"id": 10,
 "src": "mu/orange/orange.jpg",
 "tracks": [
 {
@@ -399,6 +409,7 @@ var albums = [
 "album": "Ordinary Corrupt Human Love",
 "band": "Deafheaven",
 "year": "2018",
+"id": 11,
 "src": "mu/ordinarycorrupt/ordinarycorrupt.jpg",
 "tracks": [
 {
@@ -435,6 +446,7 @@ var albums = [
 "album": "Панихида",
 "band": "Батюшка",
 "year": "2019",
+"id": 12,
 "src": "mu/panihida/panihinda.jpg",
 "tracks": [
 {
@@ -475,6 +487,7 @@ var albums = [
 "album": "Perfect War Forever EP",
 "band": "Glass Cloud",
 "year": "2013",
+"id": 13,
 "src": "mu/perfectwar/perfectwar.jpg",
 "tracks": [
 {
@@ -503,6 +516,7 @@ var albums = [
 "album": "Pluma [EP]",
 "band": "December",
 "year": "2019",
+"id": 14,
 "src": "mu/pluma/pluma.jpg",
 "tracks": [
 {
@@ -527,6 +541,7 @@ var albums = [
 "album": "Suck It And See (Japan Edition)",
 "band": "Arctic Monkeys",
 "year": "2011",
+"id": 15,
 "src": "mu/suck/suck.jpg",
 "tracks": [
 {
@@ -587,6 +602,7 @@ var albums = [
 "album": "Sunbather",
 "band": "Deafheaven",
 "year": "2013",
+"id": 16,
 "src": "mu/sunbather/sunbather.jpg",
 "tracks": [
 {
@@ -623,6 +639,7 @@ var albums = [
 "album": "Titan",
 "band": "Anup Sastry",
 "year": "2014",
+"id": 17,
 "src": "mu/titan/titan.jpg",
 "tracks": [
 {
@@ -647,6 +664,7 @@ var albums = [
 "album": "Transfixion of Spirits",
 "band": "Black Cilice",
 "year": "2019",
+"id": 18,
 "src": "mu/transfixion/transfixion.jpg",
 "tracks": [
 {
@@ -671,6 +689,7 @@ var albums = [
 "album": "Vector (Deluxe Edition)",
 "band": "Haken",
 "year": "2018",
+"id": 19,
 "src": "mu/vector/vector.jpg",
 "tracks": [
 {

@@ -202,12 +202,14 @@ namespace GusicLibraryBuilder
             List<String> lines = new List<string>();
             lines.Add("var albums = [");
             //process albums here
+            int i = 1;
             foreach(Album x in albums)
             {
                 lines.Add("{");
                 lines.Add("\"album\": \"" + x.title + "\",");
                 lines.Add("\"band\": \"" + x.artist + "\",");
                 lines.Add("\"year\": \"" + x.year + "\",");
+                lines.Add("\"id\": " + i + ",");
                 lines.Add("\"src\": \"" + Path.GetRelativePath(entryFolder, x.imagesrc).Replace("\\", "/") + "\",");
                 lines.Add("\"tracks\": [");
                 foreach(Track y in x.tracks)
@@ -219,6 +221,7 @@ namespace GusicLibraryBuilder
                 }
                 lines.Add("]");
                 lines.Add("},");
+                i++;
             }
             //end album processing
             lines.Add("];");
