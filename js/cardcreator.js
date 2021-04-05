@@ -77,6 +77,9 @@ function createelementCard(element) {
 
     let card = document.createElement('div');
     card.className = 'card shadow cursor-pointer';
+    if(touchmode == true) {
+        card.classList.add("touchmode");
+    }
     card.setAttribute("data-toggle", "modal");
     card.setAttribute("data-target", "#a" + element.id);
 
@@ -149,6 +152,7 @@ function bufferResize() {
 }
 
 function touchModeOn() {
+    touchmode = true;
     let cards = cardContainer.querySelectorAll(".card");
     for (i = 0; i < cards.length; i++) {
         cards[i].classList.add("touchmode");
@@ -158,6 +162,7 @@ function touchModeOn() {
 }
 
 function touchModeOff() {
+    touchmode = false;
     let cards = cardContainer.querySelectorAll(".card");
     for (i = 0; i < cards.length; i++) {
         cards[i].classList.remove("touchmode");
@@ -166,8 +171,163 @@ function touchModeOff() {
     touchmodeswitch.setAttribute("onclick", "touchModeOn()");
 }
 
+function sortAscArtist() {
+    albums.sort(function(a,b) {
+        return a.album.localeCompare(b.album);
+    });
+    albums.sort(function(a,b) {
+        return a.year - b.year;
+    });
+    albums.sort(function(a,b) {
+        return a.band.localeCompare(b.band);
+    });
+    cardContainer.innerHTML = "";
+    albums.forEach((albumobject) => {
+        createelementCard(albumobject);
+    });
+
+    titlesort.setAttribute("onclick", "sortAscTitle()");
+    artistsort.setAttribute("onclick", "sortDescArtist()");
+    yearsort.setAttribute("onclick", "sortAscYear()");
+    titlesort.innerHTML = "Title &#9652;";
+    artistsort.innerHTML = "Artist &#9652;";
+    yearsort.innerHTML = "Year &#9652;";
+    titlesort.classList.remove("underlined");
+    artistsort.classList.add("underlined");
+    yearsort.classList.remove("underlined");
+}
+
+function sortDescArtist() {
+    albums.sort(function(a,b) {
+        return a.album.localeCompare(b.album);
+    });
+    albums.sort(function(a,b) {
+        return a.year - b.year;
+    });
+    albums.sort(function(a,b) {
+        return b.band.localeCompare(a.band);
+    });
+    cardContainer.innerHTML = "";
+    albums.forEach((albumobject) => {
+        createelementCard(albumobject);
+    });
+
+    titlesort.setAttribute("onclick", "sortAscTitle()");
+    artistsort.setAttribute("onclick", "sortAscArtist()");
+    yearsort.setAttribute("onclick", "sortAscYear()");
+    titlesort.innerHTML = "Title &#9652;";
+    artistsort.innerHTML = "Artist &#9662;";
+    yearsort.innerHTML = "Year &#9652;";
+    titlesort.classList.remove("underlined");
+    artistsort.classList.add("underlined");
+    yearsort.classList.remove("underlined");
+}
 
 function sortAscTitle() {
+    albums.sort(function(a,b) {
+        return a.band.localeCompare(b.band);
+    });
+    albums.sort(function(a,b) {
+        return a.year - b.year;
+    });
+    albums.sort(function(a,b) {
+        return a.album.localeCompare(b.album);
+    });
+    cardContainer.innerHTML = "";
+    albums.forEach((albumobject) => {
+        createelementCard(albumobject);
+    });
+
+    titlesort.setAttribute("onclick", "sortDescTitle()");
+    artistsort.setAttribute("onclick", "sortAscArtist()");
+    yearsort.setAttribute("onclick", "sortAscYear()");
+    titlesort.innerHTML = "Title &#9652;";
+    artistsort.innerHTML = "Artist &#9652;";
+    yearsort.innerHTML = "Year &#9652;";
+    titlesort.classList.add("underlined");
+    artistsort.classList.remove("underlined");
+    yearsort.classList.remove("underlined");
+}
+
+function sortDescTitle() {
+    albums.sort(function(a,b) {
+        return a.band.localeCompare(b.band);
+    });
+    albums.sort(function(a,b) {
+        return a.year - b.year;
+    });
+    albums.sort(function(a,b) {
+        return b.album.localeCompare(a.album);
+    });
+    cardContainer.innerHTML = "";
+    albums.forEach((albumobject) => {
+        createelementCard(albumobject);
+    });
+
+    titlesort.setAttribute("onclick", "sortAscTitle()");
+    artistsort.setAttribute("onclick", "sortAscArtist()");
+    yearsort.setAttribute("onclick", "sortAscYear()");
+    titlesort.innerHTML = "Title &#9662;";
+    artistsort.innerHTML = "Artist &#9652;";
+    yearsort.innerHTML = "Year &#9652;";
+    titlesort.classList.add("underlined");
+    artistsort.classList.remove("underlined");
+    yearsort.classList.remove("underlined");
+}
+
+function sortAscYear() {
+    albums.sort(function(a,b) {
+        return a.band.localeCompare(b.band);
+    });
+    albums.sort(function(a,b) {
+        return a.album.localeCompare(b.album);
+    });
+    albums.sort(function(a,b) {
+        return a.year - b.year;
+    });
+    cardContainer.innerHTML = "";
+    albums.forEach((albumobject) => {
+        createelementCard(albumobject);
+    });
+
+    titlesort.setAttribute("onclick", "sortAscTitle()");
+    artistsort.setAttribute("onclick", "sortAscArtist()");
+    yearsort.setAttribute("onclick", "sortDescYear()");
+    titlesort.innerHTML = "Title &#9652;";
+    artistsort.innerHTML = "Artist &#9652;";
+    yearsort.innerHTML = "Year &#9652;";
+    titlesort.classList.remove("underlined");
+    artistsort.classList.remove("underlined");
+    yearsort.classList.add("underlined");
+}
+
+function sortDescYear() {
+    albums.sort(function(a,b) {
+        return a.band.localeCompare(b.band);
+    });
+    albums.sort(function(a,b) {
+        return a.album.localeCompare(b.album);
+    });
+    albums.sort(function(a,b) {
+        return b.year - a.year;
+    });
+    cardContainer.innerHTML = "";
+    albums.forEach((albumobject) => {
+        createelementCard(albumobject);
+    });
+
+    titlesort.setAttribute("onclick", "sortAscTitle()");
+    artistsort.setAttribute("onclick", "sortAscArtist()");
+    yearsort.setAttribute("onclick", "sortAscYear()");
+    titlesort.innerHTML = "Title &#9652;";
+    artistsort.innerHTML = "Artist &#9652;";
+    yearsort.innerHTML = "Year &#9662;";
+    titlesort.classList.remove("underlined");
+    artistsort.classList.remove("underlined");
+    yearsort.classList.add("underlined");
+}
+
+function sortAscTitlelegacy() {
     sortAscDesc(".card-subtitle", true);
     sortAscDesc(".card-title", true);
     /*titlesort.onclick=sortDescTitle;
@@ -184,7 +344,7 @@ function sortAscTitle() {
     yearsort.classList.remove("underlined");
 }
 
-function sortAscArtist() {
+function sortAscArtistlegacy() {
     sortAscDesc(".card-title", true);
     sortAscDesc(".card-subtitle", true);
     /*titlesort.onclick=sortAscTitle;
@@ -201,7 +361,7 @@ function sortAscArtist() {
     yearsort.classList.remove("underlined");
 }
 
-function sortAscYear() {
+function sortAscYearlegacy() {
     sortAscDesc(".card-title", true);
     sortAscDesc(".card-text", true);
     /*titlesort.onclick=sortAscTitle;
@@ -218,7 +378,7 @@ function sortAscYear() {
     yearsort.classList.add("underlined");
 }
 
-function sortDescTitle() {
+function sortDescTitlelegacy() {
     sortAscDesc(".card-subtitle", true);
     sortAscDesc(".card-title", false);
     /*titlesort.onclick=sortAscTitle;
@@ -235,7 +395,7 @@ function sortDescTitle() {
     yearsort.classList.remove("underlined");
 }
 
-function sortDescArtist() {
+function sortDescArtistlegacy() {
     sortAscDesc(".card-title", true);
     sortAscDesc(".card-subtitle", false);
     /*titlesort.onclick=sortAscTitle;
@@ -252,7 +412,7 @@ function sortDescArtist() {
     yearsort.classList.remove("underlined");
 }
 
-function sortDescYear() {
+function sortDescYearlegacy() {
     sortAscDesc(".card-title", true);
     sortAscDesc(".card-text", false);
     /*titlesort.onclick=sortAscTitle;
@@ -339,7 +499,7 @@ initListOfelements();
 var titlesort = document.getElementById("titlesort");
 var artistsort = document.getElementById("artistsort");
 var yearsort = document.getElementById("yearsort");
-
+var touchmode = false;
 var touchmodeswitch = document.getElementById("touchmode");
 
 sortAscTitle();
